@@ -1,9 +1,8 @@
 spring:
   application:
     name: hydra-discovery-service
-  cloud:
-    config:
-      uri: https://hydra-config-service.cfapps.io/
+  profiles:
+    active: prod
     
 server:
   port: 8761
@@ -12,3 +11,19 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+---
+
+spring:
+  profiles: prod
+  cloud:
+    config:
+      uri: https://hydra-config-service.cfapps.io/
+
+---
+
+spring:
+  profiles: dev
+  cloud:
+    config:
+      uri: https://localhost:8888
