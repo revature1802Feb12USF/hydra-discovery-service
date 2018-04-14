@@ -26,4 +26,4 @@ spring:
   profiles: dev
   cloud:
     config:
-      uri: https://localhost:8888
+      uri: http://localhost:8888
